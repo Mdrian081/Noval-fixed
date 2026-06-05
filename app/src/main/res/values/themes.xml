@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.NovaL" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">#00E5FF</item>
+        <item name="colorPrimaryVariant">#0097A7</item>
+        <item name="colorOnPrimary">#060B14</item>
+        <item name="colorSecondary">#FFD700</item>
+        <item name="colorOnSecondary">#060B14</item>
+        <item name="android:windowBackground">#060B14</item>
+        <item name="android:statusBarColor">#060B14</item>
+        <item name="android:navigationBarColor">#060B14</item>
+        <item name="android:textColorPrimary">#E0F0FF</item>
+        <item name="android:textColorSecondary">#7BC8E0</item>
+        <item name="colorControlHighlight">#2200E5FF</item>
+        <item name="materialButtonStyle">@style/NovalButton</item>
+    </style>
+
+    <style name="NovalButton" parent="Widget.MaterialComponents.Button">
+        <item name="cornerRadius">8dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">monospace</item>
+    </style>
+</resources>

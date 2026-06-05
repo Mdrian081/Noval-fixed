@@ -1,0 +1,3 @@
+-keep class com.noval.assistant.** { *; }
+-keep class okhttp3.** { *; }
+-dontwarn okhttp3.**

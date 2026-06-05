@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#060B14">
+
+    <!-- ===== SETUP SCREEN ===== -->
+    <LinearLayout
+        android:id="@+id/setupLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="28dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="N O V A L"
+            android:textColor="#00E5FF"
+            android:textSize="32sp"
+            android:fontFamily="monospace"
+            android:textStyle="bold"
+            android:letterSpacing="0.3"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="প্রথমবার সেটআপ"
+            android:textColor="#507080"
+            android:textSize="14sp"
+            android:layout_marginBottom="32dp"/>
+
+        <!-- AI Mode Toggle -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#0D1525"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/tvAiModeLabel"
+                android:text="Claude Mode"
+                android:textColor="#00E5FF"
+                android:textStyle="bold"
+                android:layout_gravity="center_vertical"/>
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switchAiMode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <!-- API Key Input -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilApiKey"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="Claude API Key (sk-ant-...)"
+            android:layout_marginBottom="24dp">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etSetupApiKey"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#E0F0FF"
+                android:inputType="textPassword"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btnActivateNoval"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="NOVAL চালু করুন"
+            android:backgroundTint="#00E5FF"
+            android:textColor="#060B14"
+            android:textStyle="bold"
+            android:fontFamily="monospace"/>
+    </LinearLayout>
+
+    <!-- ===== MAIN SCREEN ===== -->
+    <LinearLayout
+        android:id="@+id/mainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Top Bar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="8dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tvTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="00:00"
+                    android:textColor="#00E5FF"
+                    android:textSize="32sp"
+                    android:fontFamily="monospace"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/tvDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="সোমবার, ১ জানুয়ারি"
+                    android:textColor="#507080"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/btnClear"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/btn_circle"
+                android:src="@android:drawable/ic_menu_delete"
+                android:tint="#507080"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="8dp"
+                android:contentDescription="Clear"/>
+            <ImageButton
+                android:id="@+id/btnSettings"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/btn_circle"
+                android:src="@android:drawable/ic_menu_preferences"
+                android:tint="#507080"
+                android:layout_gravity="center_vertical"
+                android:contentDescription="Settings"/>
+        </LinearLayout>
+
+        <!-- NOVAL Title -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="N O V A L"
+            android:textColor="#00E5FF"
+            android:textSize="24sp"
+            android:fontFamily="monospace"
+            android:textStyle="bold"
+            android:letterSpacing="0.4"
+            android:gravity="center"
+            android:layout_marginTop="4dp"/>
+
+        <!-- Status -->
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/status_ready"
+            android:textColor="#00E5FF"
+            android:textSize="13sp"
+            android:fontFamily="monospace"
+            android:gravity="center"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Pulse Circle -->
+        <View
+            android:id="@+id/pulseView"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/pulse_circle"
+            android:visibility="gone"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Conversation -->
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingHorizontal="16dp">
+            <TextView
+                android:id="@+id/tvConversation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#B0D4E8"
+                android:textSize="13sp"
+                android:lineSpacingMultiplier="1.4"
+                android:fontFamily="monospace"
+                android:visibility="gone"
+                android:padding="12dp"
+                android:background="@drawable/conversation_bg"/>
+        </ScrollView>
+
+        <!-- Mic Button -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:paddingVertical="16dp">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/btnMic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/ic_btn_speak_now"
+                app:backgroundTint="#00E5FF"
+                app:tint="#060B14"
+                android:contentDescription="Mic"
+                app:fabSize="normal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Noval বলুন বা মাইক চাপুন"
+                android:textColor="#507080"
+                android:textSize="11sp"
+                android:fontFamily="monospace"
+                android:layout_marginTop="8dp"/>
+        </LinearLayout>
+
+        <!-- Emergency Stop Button -->
+        <Button
+            android:id="@+id/btnEmergencyStop"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:text="NovaL বন্ধ করুন"
+            android:backgroundTint="#1A0A0A"
+            android:textColor="#FF4444"
+            android:fontFamily="monospace"
+            android:textSize="13sp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="16dp"/>
+
+    </LinearLayout>
+
+    <!-- Incoming Call Overlay -->
+    <LinearLayout
+        android:id="@+id/callOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@drawable/call_overlay_bg"
+        android:padding="20dp"
+        android:layout_margin="16dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="80dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="INCOMING CALL"
+            android:textColor="#FFD700"
+            android:textSize="11sp"
+            android:fontFamily="monospace"/>
+        <TextView
+            android:id="@+id/tvCallerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Unknown"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginTop="4dp"/>
+        <TextView
+            android:id="@+id/tvCallerNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="#A0C4D4"
+            android:textSize="13sp"
+            android:layout_marginBottom="12dp"/>
+        <Button
+            android:id="@+id/btnRejectCall"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="DISMISS"
+            android:backgroundTint="#CC2020"
+            android:textColor="#FFFFFF"/>
+        <Button
+            android:id="@+id/btnAcceptCall"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="ACCEPT"
+            android:backgroundTint="#00AA44"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="8dp"/>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

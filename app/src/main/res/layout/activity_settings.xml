@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#060B14">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Header -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginBottom="24dp">
+            <ImageButton android:id="@+id/btnBack" android:layout_width="40dp" android:layout_height="40dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@android:drawable/ic_menu_close_clear_cancel" android:tint="#00E5FF"/>
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                android:text="N O V A L  SETTINGS" android:textColor="#00E5FF" android:textSize="16sp"
+                android:fontFamily="monospace" android:textStyle="bold" android:gravity="center"
+                android:layout_gravity="center_vertical"/>
+        </LinearLayout>
+
+        <!-- Master Switch -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:background="#0D1525" android:padding="16dp"
+            android:layout_marginBottom="16dp">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                android:text="NovaL সক্রিয়" android:textColor="#00E5FF" android:textStyle="bold"
+                android:layout_gravity="center_vertical"/>
+            <androidx.appcompat.widget.SwitchCompat android:id="@+id/switchNovalActive"
+                android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true"/>
+        </LinearLayout>
+
+        <!-- AI Mode -->
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="AI মোড" android:textColor="#507080" android:textSize="11sp"
+            android:fontFamily="monospace" android:layout_marginBottom="8dp"/>
+        <RadioGroup android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginBottom="16dp">
+            <RadioButton android:id="@+id/radioClaude" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="Claude (Anthropic)"
+                android:textColor="#A0C4D4" android:checked="true" android:layout_marginEnd="16dp"/>
+            <RadioButton android:id="@+id/radioChatGpt" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="ChatGPT" android:textColor="#A0C4D4"/>
+        </RadioGroup>
+
+        <!-- Claude API Key -->
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="CLAUDE API KEY" android:textColor="#507080" android:textSize="11sp"
+            android:fontFamily="monospace" android:layout_marginBottom="4dp"/>
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent"
+            android:layout_height="wrap_content" style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_marginBottom="16dp">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etClaudeApiKey"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:textColor="#E0F0FF" android:inputType="textPassword" android:hint="sk-ant-..."/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- ChatGPT API Key -->
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="CHATGPT API KEY" android:textColor="#507080" android:textSize="11sp"
+            android:fontFamily="monospace" android:layout_marginBottom="4dp"/>
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent"
+            android:layout_height="wrap_content" style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_marginBottom="16dp">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etChatGptApiKey"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:textColor="#E0F0FF" android:inputType="textPassword" android:hint="sk-..."/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- User Name -->
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="আপনার নাম" android:textColor="#507080" android:textSize="11sp"
+            android:fontFamily="monospace" android:layout_marginBottom="4dp"/>
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent"
+            android:layout_height="wrap_content" style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_marginBottom="16dp">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etUserName"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:textColor="#E0F0FF" android:hint="আপনার নাম"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Salutation -->
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="NovaL আপনাকে কীভাবে ডাকবে?" android:textColor="#507080"
+            android:textSize="11sp" android:fontFamily="monospace" android:layout_marginBottom="8dp"/>
+        <RadioGroup android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginBottom="8dp">
+            <RadioButton android:id="@+id/radioSir" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="Sir" android:textColor="#A0C4D4"
+                android:checked="true" android:layout_marginEnd="16dp"/>
+            <RadioButton android:id="@+id/radioMaam" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="Ma'am" android:textColor="#A0C4D4"
+                android:layout_marginEnd="16dp"/>
+            <RadioButton android:id="@+id/radioCustom" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="Custom" android:textColor="#A0C4D4"/>
+        </RadioGroup>
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent"
+            android:layout_height="wrap_content" style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_marginBottom="16dp">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etCustomSalutation"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:textColor="#E0F0FF" android:hint="Custom নাম"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Language -->
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="ভাষা" android:textColor="#507080" android:textSize="11sp"
+            android:fontFamily="monospace" android:layout_marginBottom="8dp"/>
+        <RadioGroup android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginBottom="16dp">
+            <RadioButton android:id="@+id/radioBengali" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="বাংলা" android:textColor="#A0C4D4"
+                android:checked="true" android:layout_marginEnd="16dp"/>
+            <RadioButton android:id="@+id/radioEnglish" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="English" android:textColor="#A0C4D4"/>
+        </RadioGroup>
+
+        <!-- Wake Word -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginBottom="24dp">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                android:text="Wake Word (Noval) সবসময় চালু" android:textColor="#A0C4D4"
+                android:textSize="14sp" android:layout_gravity="center_vertical"/>
+            <androidx.appcompat.widget.SwitchCompat android:id="@+id/switchWakeWord"
+                android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true"/>
+        </LinearLayout>
+
+        <!-- Save -->
+        <Button android:id="@+id/btnSave" android:layout_width="match_parent" android:layout_height="52dp"
+            android:text="সেটিংস সংরক্ষণ করুন" android:backgroundTint="#00E5FF"
+            android:textColor="#060B14" android:textStyle="bold" android:fontFamily="monospace"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Reset Setup -->
+        <Button android:id="@+id/btnResetSetup" android:layout_width="match_parent" android:layout_height="44dp"
+            android:text="API Key পরিবর্তন করুন (Setup Reset)"
+            android:backgroundTint="#1A0A0A" android:textColor="#FF6666"
+            android:fontFamily="monospace" android:textSize="12sp"/>
+
+    </LinearLayout>
+</ScrollView>

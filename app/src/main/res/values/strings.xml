@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">NovaL</string>
+    <string name="wake_word">noval</string>
+    <string name="status_ready">Noval বলুন বা মাইক চাপুন</string>
+    <string name="status_listening">শুনছি…</string>
+    <string name="status_processing">প্রক্রিয়াকরণ…</string>
+    <string name="power_mode_on">⚡ পাওয়ার মোড চালু</string>
+    <string name="power_mode_off">পাওয়ার মোড বন্ধ</string>
+</resources>
