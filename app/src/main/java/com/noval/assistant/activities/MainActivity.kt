@@ -1,5 +1,6 @@
 package com.noval.assistant.activities
 
+import com.noval.assistant.R
 import android.Manifest
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -191,7 +192,7 @@ class MainActivity : AppCompatActivity() {
     private fun updateNovalStatus() {
         val active = PreferenceHelper.isNovalActive(this)
         binding.btnEmergencyStop.text = if (active) "⏹ NovaL বন্ধ করুন" else "▶ NovaL চালু করুন"
-        binding.tvStatus.text = if (active) getString(R.string.status_ready) else "NovaL নিষ্ক্রিয়"
+        binding.tvStatus.text = if (active) "Noval বলুন বা মাইক চাপুন" else "NovaL নিষ্ক্রিয়"
         binding.tvStatus.setTextColor(
             if (active) android.graphics.Color.parseColor("#00E5FF")
             else android.graphics.Color.parseColor("#FF4444")
@@ -223,7 +224,7 @@ class MainActivity : AppCompatActivity() {
                 if (command.isNotEmpty()) handleCommand(command) else deactivateNoval()
             }
             override fun onError(error: Int) {
-                binding.tvStatus.text = getString(R.string.status_ready)
+                binding.tvStatus.text = "Noval বলুন বা মাইক চাপুন"
                 deactivateNoval()
             }
             override fun onReadyForSpeech(params: Bundle?) { binding.tvStatus.text = "বলুন..." }
@@ -271,7 +272,7 @@ class MainActivity : AppCompatActivity() {
             val (response, action) = ClaudeApiClient.sendMessage(command, apiKey, aiMode, phoneContext)
             runOnUiThread {
                 addToConversation("NovaL", response)
-                binding.tvStatus.text = getString(R.string.status_ready)
+                binding.tvStatus.text = "Noval বলুন বা মাইক চাপুন"
                 if (action != null) {
                     val result = ActionHandler.executeAction(this@MainActivity, action)
                     addToConversation("System", result)
@@ -296,7 +297,7 @@ class MainActivity : AppCompatActivity() {
     private fun deactivateNoval() {
         isListeningForCommand = false
         WakeWordService.isActive = false
-        binding.tvStatus.text = getString(R.string.status_ready)
+        binding.tvStatus.text = "Noval বলুন বা মাইক চাপুন"
         binding.pulseView.visibility = View.GONE
         binding.pulseView.scaleX = 1f
         binding.pulseView.scaleY = 1f
